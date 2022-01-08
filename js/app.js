@@ -1,4 +1,4 @@
-const canvas = document.getElementById("canvas1")
+ const canvas = document.getElementById("canvas1")
 //Gives access to canvas methods
 const ctx = canvas.getContext('2d')
 canvas.width = 800
@@ -55,18 +55,22 @@ function movePlayer() {
 		//Move player in negative direction along the vertical axis
 		player.y -= player.speed
 		player.frameY = 1
+		player.moving = true
 	//Left
 	} else if(keys[37] && player.x > 0) {
 		player.x -= player.speed
 		player.frameY = 1
+		player.moving = true
 	//Down
 	} else if(keys[40] && player.y < canvas.height - player.height - 10) {
 		player.y += player.speed
 		player.frameY = 1
+		player.moving = true
 	//Right
 	} else if(keys[39] && player.x < canvas.width - player.width) {
 		player.x += player.speed
 		player.frameY = 1
+		player.moving = true
 	}
 }
 

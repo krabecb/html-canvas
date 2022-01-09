@@ -43,12 +43,6 @@ function drawSprite(img, sX, sY, sW, sH, dX, dY, dW, dH) {
 	ctx.drawImage(img, sX, sY, sW, sH, dX, dY, dW, dH)  
 }
 
-
-
-setInterval( () => {
-
-})
-
 function movePlayer() {
 	//player.y > 100: If the y position of the player is more than 100px away from the top of the canvas
 	if(keys[38] && player.y > 100) {
@@ -86,36 +80,6 @@ function handlePlayerFrame() {
 	}
 }
 
-
-
-
-window.addEventListener("keydown", (e) => {
-	//This syntax simply add the keycode to the keys arr
-	keys[e.keyCode] = true
-	// console.log("Here is the keys arr: ", keys)
-	player.moving = true
-})
-
-window.addEventListener("keyup", (e) => {
-	delete keys[e.keyCode]
-	player.moving = false
-})
-
-//REF:
-// function animate() {
-// 	// ctx.clearRect(0, 0, canvas.width, canvas.height) //<--Including this while position variable and increment is active will resolve trailing effect of background moving
-// 	//short version that takes 5 arguments: background, second and third arg are coordinates of top left coordinates to start drawing from
-// 	//last two args are width and height of the area we want our image to fit into. Make it cover the entire canvas by saying cavas.width and canvas.height
-// 	ctx.drawImage(background, 0, 0, canvas.width, canvas.height)
-// 	drawSprite(playerSprite, player.width * player.frameX, player.height * player.frameY, player.width, player.height, player.x, player.y, player.width, player.height)
-// 	movePlayer()
-// 	handlePlayerFrame()
-// 	//Pass in name of parent function. This runs it again and again creating animation loop
-// 	requestAnimationFrame(animate)
-// }
-
-// animate()
-
 let fps, fpsInterval, startTime, now, then, elapsed;
 
 function startAnimating(fps) {
@@ -138,6 +102,21 @@ function animate() {
 	}
 }
 startAnimating(10)
+
+
+
+
+window.addEventListener("keydown", (e) => {
+	//This syntax simply add the keycode to the keys arr
+	keys[e.keyCode] = true
+	// console.log("Here is the keys arr: ", keys)
+	player.moving = true
+})
+
+window.addEventListener("keyup", (e) => {
+	delete keys[e.keyCode]
+	player.moving = false
+})
 
 
 
